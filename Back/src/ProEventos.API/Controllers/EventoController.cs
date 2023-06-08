@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProEventos.API.Models;
 
 namespace ProEventos.API.Controllers;
 
@@ -13,8 +14,11 @@ public class EventoController : ControllerBase
     }
 
     [HttpGet]
-    public string Get()
+    public Evento Get()
     {
-        return "value";
+        return new Evento(){
+            EventoId = 1,
+            Tema = "Angular 11"
+        };
     }
 }
