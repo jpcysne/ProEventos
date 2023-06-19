@@ -17,22 +17,9 @@ export class EventosComponent implements OnInit{
   }
 
   public getEventos(): void {
-    this.http.get('https://localhost:7270')
-
-
-    this.eventos = [
-      {
-        Tema: 'Angular',
-        Local: 'Belo Horizonte'
-      },
-      {
-        Tema: '.Net 5',
-        Local: 'Sao Paulo'
-      },
-      {
-        Tema: 'Angular e Suas Novidades',
-        Local: 'Rio de Janeiro'
-      }
-    ];
+    this.http.get('https://localhost:7270/api/eventos').subscribe(
+      response => this.eventos =response,
+      error => console.error(error)
+    );
   }
 }
