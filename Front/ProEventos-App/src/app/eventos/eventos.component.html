@@ -1,12 +1,15 @@
 <h2>Eventos</h2>
 <hr>
 
-<form action="" class="form-inline">
-  <div class="form-group mb-2">
+<form action="" class="row g-2">
+  <div class="col-auto">
     <input type="text" class="form-control mr-2" placeholder="Buscar">
+  </div>
+  <div class="col-auto">
     <button class="btn btn-outline-success">Buscar</button>
   </div>
 </form>
+<hr>
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
@@ -20,16 +23,23 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventos">
+      <td>{{evento.eventoId}}</td>
+      <td>{{evento.imagemURL}}</td>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.qtdPessoas}}</td>
+      <td>{{evento.lote}}</td>
       <td></td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td coldspan="8" class="text-center">
+        <h4>Nenhum evento encontrado!</h4>
+      </td>
+    </tr>
+  </tfoot>
 </table>
