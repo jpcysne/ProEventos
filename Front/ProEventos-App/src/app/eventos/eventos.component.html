@@ -26,7 +26,7 @@
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventos">
       <td>{{evento.eventoId}}</td>
-      <td>{{evento.imagemURL}}</td>
+      <td><img src="/assets/{{evento.imagemURL}}" alt=""></td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
       <td>{{evento.dataEvento}}</td>
@@ -35,7 +35,7 @@
       <td></td>
     </tr>
   </tbody>
-  <tfoot>
+  <tfoot *ngIf="!eventos.length">
     <tr>
       <td coldspan="8" class="text-center">
         <h4>Nenhum evento encontrado!</h4>
