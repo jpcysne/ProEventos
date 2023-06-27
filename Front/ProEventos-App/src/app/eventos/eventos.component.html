@@ -3,6 +3,7 @@
 
 <div class="row g-2">
   <div class="col-auto">
+    <label class="mr-2">Filtro</label>
     <input
     type="text"
     class="form-control mr-2"
@@ -10,12 +11,9 @@
      [(ngModel)]="filterList"
     >
   </div>
-  <div class="col-auto">
-    <button class="btn btn-outline-success">Buscar</button>
-  </div>
 </div>
 <hr>
-<h3>Filtro: {{filterList}}</h3>
+<!--<h3>Filtro: {{filterList}}</h3>-->
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
@@ -35,7 +33,7 @@
     </tr>
   </thead>
   <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let evento of eventos">
+    <tr *ngFor="let evento of eventosFiltrados">
       <td>
         <img [collapse]="!showImg"
           [isAnimated]="true"
@@ -50,7 +48,10 @@
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
       <td>{{evento.lote}}</td>
-      <td></td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm me-md-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!eventos.length">
@@ -61,3 +62,5 @@
     </tr>
   </tfoot>
 </table>
+
+<!--{{eventos | json}} -->
